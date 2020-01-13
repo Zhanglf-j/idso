@@ -1,0 +1,102 @@
+/* .row{
+    height: 75rpx;
+    line-height: 60rpx;
+    width: 100%;
+    overflow: hidden;
+} */
+.index_list {
+    width: 100%;
+    font-size: 28rpx;
+    color: #101010;
+    line-height: 20px;
+}
+.index_title {
+  width: 100%;
+  height:90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left {
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+}
+.left image {
+    border-radius: 50%;
+    width: 60rpx;
+    height: 60rpx;
+    margin: 0 24rpx 0 10rpx;
+}
+.left input {
+    width: 200rpx;
+    background: none;
+    margin-left: 50rpx;
+    border: 1px solid rgb(138, 132, 132);
+}
+.right image {
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 60rpx;
+    margin-top: 15rpx;
+}
+/**轮播**/
+.swiper-container{
+  background: #E8E8E8;
+}
+swiper,swiper-item {
+    height: 276rpx;
+}
+swiper-item image {
+    width: 100%;
+    height: 100%;
+}
+.swiper-container .swiper{
+  height: 276rpx;
+}
+.swiper-container .swiper .img{
+  width: 100%;
+  height: 100%;
+}
+.swiper_text {
+    text-align: center;
+    line-height: 276rpx;
+    width: 100%;
+    position:absolute;
+    z-index: 1;
+    font-weight: 900;
+}
+.title_list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.title_list view {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32rpx;
+}
+.title_list image {
+    width: 84rpx;
+    height: 84rpx;
+    margin: 4rpx 0 6rpx 0;
+}
+.title_text {
+    /* font-family: 'PingFangSC-bold'; */
+    font-weight: 900;
+    font-size: 32rpx;
+    margin-left: 22rpx;
+}
+.list1 {
+    margin: 30rpx 0 44rpx 0;
+}
+.list2 {
+    margin: 20rpx 0 68rpx 0;
+}
+.list2 image {
+    margin-bottom: 28rpx;
+}

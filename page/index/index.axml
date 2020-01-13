@@ -1,0 +1,136 @@
+<view class="index_list">
+    <!-- <button type="primary" size="" onTap=""> 自动免登并获取用户信息 </button>
+    <view class="row">AuthCode:{{authCode}}</view>
+    <view class="row">openId:{{openId}}</view>
+    <view class="row">nick:{{nick}}</view> -->
+    <view class="index_title">
+      <view class="left">
+        <image mode="scaleToFill" src="../../images/logo.jpg"/>
+        <text>固瑞口腔（大族店）</text>
+        <input value=""></input>
+      </view>
+      <view class="right">
+         <image mode="scaleToFill" src="../../images/search.png"/>
+      </view>
+    </view>
+    <view class="swiper-container">
+        <view class="swiper_text">
+          长久的相处 ~
+        </view>
+        <swiper
+            indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}"
+            interval="{{interval}}"
+            indicator-color="#DDDDDD"
+            indicator-active-color="#000">
+            <block a:for="{{imgUrls}}">
+                <swiper-item>
+                  <image src="{{item}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="title_list list1">
+      <view>
+        <image mode="scaleToFill" src="../../images/bird.png"/>
+        <text>夸夸你</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/circle.png"/>
+        <text>天天反馈</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/time.png"/>
+        <text>早会签到</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/achieve.png"/>
+        <text>个人业绩</text>
+      </view>
+    </view>
+    <view class="title_text">收藏</view>
+     <view class="title_list list2">
+      <view>
+        <image mode="scaleToFill" src="../../images/apple.png"/>
+        <text>主诉分类</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github.png"/>
+        <text>初诊挂号</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github.png"/>
+        <text>复诊挂号</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github.png"/>
+        <text>顾客信息维护</text>
+      </view>
+    </view>
+     <view class="title_text">接诊工作</view>
+     <view class="title_list list2">
+      <view onTap="firstVisit">
+        <image mode="scaleToFill" src="../../images/github_active.png"/>
+        <text>初诊挂号</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github_active.png"/>
+        <text>复诊挂号</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github_active.png"/>
+        <text>顾客维护</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/apple.png"/>
+        <text>流水统计</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github.png"/>
+        <text>评论维护</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github.png"/>
+        <text>顾客仪式</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/apple.png"/>
+        <text>医生转诊</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/github.png"/>
+        <text>加工单</text>
+      </view>
+    </view>
+     <view class="title_text">门诊工作</view>
+     <view class="title_list list2">
+      <view>
+        <image mode="scaleToFill" src="../../images/github.png"/>
+        <text>早会</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/five.png"/>
+        <text>早会管理</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/apple.png"/>
+        <text>月任务分配</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/basketball.png"/>
+        <text>排班表</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/apple.png"/>
+        <text>门店设置</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/apple.png"/>
+        <text>套餐设置</text>
+      </view>
+      <view>
+        <image mode="scaleToFill" src="../../images/five.png"/>
+        <text>经营报表</text>
+      </view>
+    </view>
+</view>

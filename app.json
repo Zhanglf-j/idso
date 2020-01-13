@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "page/index/index",
+    "page/setting/setting",
+    "page/firstvisit/firstvisit"
+  ],
+  "window": {
+    "defaultTitle": "IDSO",
+    "backgroundColor": "#F5F5F9",
+    "pullRefresh": false,
+    "allowsBounceVertical": "YES",
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "textColor": "#707070",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#F5F5F9",
+    "items": [
+      {   
+        "pagePath": "page/index/index",
+        "icon": "images/task.png",
+        "activeIcon": "images/task_active.png",
+        "name": "工作任务"
+      },
+      {
+        "pagePath": "page/setting/setting",
+        "icon": "images/setting.png",
+        "activeIcon": "images/setting_active.png",
+        "name": "设置"
+      }
+    ]
+  }
+}
