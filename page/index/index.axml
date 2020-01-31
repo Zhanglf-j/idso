@@ -6,8 +6,17 @@
     <view class="index_title">
       <view class="left">
         <image mode="scaleToFill" src="../../images/logo.jpg"/>
-        <text>固瑞口腔（大族店）</text>
-        <input value=""></input>
+        <view class='select_box'>
+          <view class='select' onTap='selectTap'>
+            <text class='select_text'>{{selectData[hospital-1].label}}</text>
+            <image class='select_img {{show&&"select_img_rotate"}}' src='../../images/select_close.png'></image>   
+          </view>
+          <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*70):0}}rpx;'>
+            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' a:for='{{selectData}}' data-value='{{item.value}}' onTap='optionTap'>{{item.label}}</text>
+          </view>
+        </view>
+        <!-- <text>固瑞口腔（大族店）</text> -->
+        <input value="" placeholder-class="input_placeholder"></input>
       </view>
       <view class="right">
          <image mode="scaleToFill" src="../../images/search.png"/>
@@ -73,7 +82,7 @@
         <image mode="scaleToFill" src="../../images/github_active.png"/>
         <text>初诊挂号</text>
       </view>
-      <view>
+      <view onTap="returnVisit">
         <image mode="scaleToFill" src="../../images/github_active.png"/>
         <text>复诊挂号</text>
       </view>

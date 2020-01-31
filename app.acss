@@ -1,3 +1,55 @@
+/* 覆盖默认样式 */
+button{
+  text-align: center;
+  font-size:28rpx;
+  background: none;
+  border: 1px solid #BBBBBB;
+  color: #101010;
+}
+input {
+  width: 342rpx;
+  height: 60rpx;
+  line-height:60rpx;
+  font-size:28rpx;
+  background: none;
+  color:#838383;
+}
+.input_placeholder {
+  color: #838383;
+}
+switch {
+  width: 90rpx;
+  height: 57rpx;
+}
+checkbox-group,radio-group {
+  width: 96%;
+  padding-left: 4%;
+  margin-bottom: 32rpx;
+}
+.checkbox,.radio {
+  height: 44rpx;
+  line-height: 44rpx;
+  font-size: 28rpx;
+  color: #101010;
+  border: 2rpx solid #BBBBBB;
+  border-radius: 20rpx;
+  display: inline-block;
+  margin: 0 20rpx 18rpx 0;
+  text-align: center;
+}
+.checked {
+  border: 2rpx solid #1989FA !important;
+}
+.checkbox checkbox,.radio radio {
+  display: none;
+}
+.all_select {
+  color: #009688;
+}
+picker-view {
+  width: 100%;
+}
+/* 自己定义 */
 .container {
   height: 100%;
   display: flex;
@@ -6,4 +58,63 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
+}
+.section {
+  width:96%;
+  padding:0 2%;
+  display: flex;
+  align-items: center;
+  line-height:90rpx;
+  /* height: 90rpx; */
+  font-size: 28rpx;
+}
+/* 下拉 */
+.select_box{
+    background: #fff;
+    /* width: 252rpx; */
+    position: relative;
+}
+.select{
+    box-sizing: border-box;
+    width: 100%;
+    height: 70rpx;
+    border:1px solid #efefef;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 20rpx;
+}
+.select_text{
+    font-size: 28rpx;
+}
+.select_img{
+    width: 30rpx !important;
+    height: 30rpx !important;
+    text-align: center;
+    display: block;
+    transition:transform 0.3s;
+    margin-left: 20rpx ;
+}
+.select_img_rotate{
+    transform:rotate(90deg); 
+}
+.option_box{
+    position: absolute;
+    top: 70rpx;
+    width: 100%;
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    border-top: 0;
+    background: #fff;
+    transition: height 0.3s;
+    z-index: 100;
+}
+.option{
+    display: block;
+    line-height: 70rpx;
+    font-size: 28rpx;
+    border-bottom: 1px solid #efefef;
+    padding: 0 20rpx;
 }

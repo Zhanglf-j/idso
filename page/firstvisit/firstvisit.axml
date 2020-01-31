@@ -1,22 +1,224 @@
-<view>
-  <view class="swiper-tab tabs">
-    <view class="swiper-tab-list {{activeIndex==0 ? 'on' : ''}}" data-current="0" onTap="tabNav">前台填写</view>
-    <view class="swiper-tab-list {{activeIndex==1 ? 'on' : ''}}" data-current="1" onTap="tabNav">PM填写</view>
-    <view class="swiper-tab-list {{activeIndex==2 ? 'on' : ''}}" data-current="2" onTap="tabNav">医生填写</view>
-    <view class="swiper-tab-list {{activeIndex==3 ? 'on' : ''}}" data-current="3" onTap="tabNav">小明填写</view>
-  </view>
-  <swiper current="{{activeIndex}}">
-    <swiper-item>
-     <view class="shopSize">1</view>
-    </swiper-item>
-    <swiper-item>
-      <view class="comment">2</view>
-    </swiper-item>
-    <swiper-item>
-      <view class="comment">3</view>
-    </swiper-item>
-    <swiper-item>
-      <view class="comment">4</view>
-    </swiper-item>
-  </swiper> 
+<view class="swiper-tab tabs">
+  <view class="swiper-tab-list {{activeIndex==0 ? 'on' : ''}}" data-current="0" onTap="tabNav">前台填写</view>
+  <view class="swiper-tab-list {{activeIndex==1 ? 'on' : ''}}" data-current="1" onTap="tabNav">PM填写</view>
+  <view class="swiper-tab-list {{activeIndex==2 ? 'on' : ''}}" data-current="2" onTap="tabNav">医生填写</view>
+  <view class="swiper-tab-list {{activeIndex==3 ? 'on' : ''}}" data-current="3" onTap="tabNav">小明填写</view>
 </view>
+<swiper current="{{activeIndex}}">
+  <swiper-item>
+    <view class="comment">
+      <form onSubmit="formSubmit" onReset="formReset">
+        <view class="section">
+          <text class="section__title"><text class="star">*</text>顾客姓名</text>
+          <input name="input" placeholder-class="input_placeholder" placeholder="请输入顾客中文姓名" />
+        </view>
+        <view class="section">
+          <text class="section__title"><text class="star">*</text>手机号</text>
+          <input name="input2" placeholder-class="input_placeholder" placeholder="请输入手机号码" />
+        </view>
+        <view class="section">
+          <text class="section__title"><text class="star_none"></text>病历号</text>
+          <input name="input3" placeholder-class="input_placeholder" placeholder="请输入第三方系统病历号" />
+          <image mode="scaleToFill" src="../../images/select_list.png" class="select_img"/>
+        </view>
+        <view class="section">
+          <text class="section__title"><text class="star">*</text>PM姓名</text>
+          <!-- <input name="input4" placeholder-class="input_placeholder" placeholder="请输入PM" /> -->
+          <view class='select_box'>
+            <view class='select' onTap='selectTap'>
+              <text class='select_text'>{{selectData[selectValue].label}}</text>
+              <image class='select_img {{show&&"select_img_rotate"}}' src='../../images/select_close.png'></image>   
+            </view>
+            <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*70):0}}rpx;'>
+              <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' a:for='{{selectData}}' data-value='{{item.value}}' onTap='optionTap'>{{item.label}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="section">
+          <text class="section__title"><text class="star">*</text>医生姓名</text>
+          <!-- <input name="input5" placeholder-class="input_placeholder" placeholder="请输入医生" /> -->
+          <view class='select_box'>
+            <view class='select' onTap='selectTap'>
+              <text class='select_text'>{{selectData[selectValue].label}}</text>
+              <image class='select_img {{show&&"select_img_rotate"}}' src='../../images/select_close.png'></image>   
+            </view>
+            <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*70):0}}rpx;'>
+              <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' a:for='{{selectData}}' data-value='{{item.value}}' onTap='optionTap'>{{item.label}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="btn-area">
+          <button formType="submit">提交</button>
+          <!-- <button formType="reset">Reset</button> -->
+        </view>
+      </form>
+    </view>
+  </swiper-item>
+  <swiper-item>
+     <view class="comment2">
+      <form onSubmit="formSubmit" onReset="formReset">
+        <view class="section select_between">
+          <text class="section__title"><text class="star">*</text>儿童顾客</text>
+          <view class="page">
+            <view class="switch-list">
+              <view class="switch-item">
+                <switch color="#00E266" checked data-type="1" onChange="switchChange"/>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="section" a:if="{{isChild}}">
+          <text class="section__title"><text class="star">*</text>家长手机</text>
+          <input name="input" placeholder-class="input_placeholder" placeholder="请输入家长手机号码" />
+        </view>
+        <view class="section" a:if="{{isChild}}">
+          <text class="section__title"><text class="star">*</text>家长姓名</text>
+          <input name="input2" placeholder-class="input_placeholder" placeholder="请输入家长手机号码" />
+        </view>
+        <radio-group onChange="radioChange" a:if="{{isChild}}">
+            <label a:for="{{familyList}}" class="{{item.checked?'radio checked':'radio'}}">
+              <view data-index="{{index}}" onTap="radioClick">
+                <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+              </view>
+            </label>
+        </radio-group>
+        <view class="section">
+          <text class="section_p"><text class="star">*</text>选择主诉类型<text class="tips">(可多选)</text></text>
+          <checkbox-group onChange="checkboxChange" data-type="1">
+            <label a:for="{{mainSuitList}}" class="{{item.checked && item.id == 3?'checkbox checked type3':(item.checked && item.id != 3?'checkbox checked': (!item.checked && item.id == 3?'checkbox type3':'checkbox'))}}">
+              <view data-type="1" data-index="{{index}}" onTap="checkboxClick">
+                <checkbox value="{{item.id}}" class="{{item.id == 3?'type3': ''}}" checked="{{item.checked}}"/>{{item.name}}
+              </view>
+            </label>
+        </checkbox-group>
+        </view>
+        <view class="section">
+          <text class="section_p"><text class="star">*</text>治疗计划<text class="tips">(可多选)</text></text>
+          <checkbox-group onChange="checkboxChange" data-type="2">
+            <label a:for="{{mainSuitList2}}" class="{{item.checked && item.id == 3?'checkbox checked type3':(item.checked && item.id != 3?'checkbox checked': (!item.checked && item.id == 3?'checkbox type3':'checkbox'))}}">
+              <view data-type="2" data-index="{{index}}" onTap="checkboxClick">
+                <checkbox value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+              </view>
+            </label>
+            <view class="{{mainSuit2.length == 11?'checked checkbox all_select': 'checkbox all_select'}}" onTap="allSelect">全选</view>
+          </checkbox-group>
+        </view>
+        <view class="section">
+          <text class="section_p"><text class="star">*</text>治疗计划单正反面</text>
+          <!-- <input name="input4" placeholder-class="input_placeholder" placeholder="请输入医生" /> -->
+          <view onTap="uploadImg" class="upload_img">
+            <view class="add_img">
+              +
+            </view>
+            <view class="text">
+              上传图片
+            </view>
+          </view>
+        </view>
+        <view class="upload_tips">
+          只支持.jpg 格式
+        </view>
+        <view class="section">
+          <text class="section_p"><text class="star">*</text>二次约诊项目<text class="tips">(可多选)</text></text>
+          <checkbox-group onChange="checkboxChange" data-type="3">
+            <label a:for="{{mainSuitList3}}" class="{{item.checked && item.id == 3?'checkbox checked type3':(item.checked && item.id != 3?'checkbox checked': (!item.checked && item.id == 3?'checkbox type3':'checkbox'))}}">
+              <view data-type="3" data-index="{{index}}" onTap="checkboxClick" class="{{item.id == 12?'all_select': ''}}">
+                <checkbox value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+              </view>
+            </label>
+          </checkbox-group>
+        </view>
+        <view class="section" a:if="{{showTime}}">
+          <text class="section_p"><text class="star">*</text>二次约诊时间</text>
+          <picker-view value="{{value}}" onChange="timeChange" class="pv-container">
+              <picker-view-column>
+                  <view a:for="{{year}}">{{item}}</view>
+              </picker-view-column>
+              <picker-view-column>
+                  <view a:for="{{month}}">{{item}}</view>
+              </picker-view-column>
+              <picker-view-column>
+                  <view a:for="{{day}}">{{item}}</view>
+              </picker-view-column>
+              <picker-view-column>
+                  <view a:for="{{hoursList}}">{{item}}</view>
+              </picker-view-column>
+              <picker-view-column>
+                  <view a:for="{{minutesList}}">{{item}}</view>
+              </picker-view-column>
+              <!-- <picker-view-column>
+                  <view a:for="{{item}}">{{item}}</view>
+              </picker-view-column> -->
+          </picker-view>
+        </view>
+        <view class="section" a:if="{{!showTime}}">
+          <text class="section__title"><text class="star">*</text>原因</text>
+          <input name="input2" placeholder-class="input_placeholder" placeholder="请填写未约二次的原因" />
+        </view>
+        <view class="section select_between">
+          <text class="section__title"><text class="star">*</text>是否加微信</text>
+           <view class="page">
+            <view class="switch-list">
+              <view class="switch-item">
+                <switch color="#00E266" checked data-type="2" onChange="switchChange"/>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="btn-area">
+          <button formType="submit">提交</button>
+          <!-- <button formType="reset">Reset</button> -->
+        </view>
+      </form>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="comment2">
+        <view class="section">
+          <text class="section_p"><text class="star">*</text>口内/口外照上传</text>
+          <view onTap="uploadImg" class="upload_img">
+            <view class="add_img">
+              +
+            </view>
+            <view class="text">
+              上传图片
+            </view>
+          </view>
+        </view>
+        <view class="upload_tips">
+          只支持.jpg 格式
+        </view>
+        <view class="section">
+          <text class="section__title"><text class="star">*</text>就诊医生</text>
+          <!-- <input name="input" placeholder-class="input_placeholder" placeholder="请填写就诊医生" /> -->
+          <view class='select_box'>
+            <view class='select' onTap='selectTap'>
+              <text class='select_text'>{{selectData[selectValue].label}}</text>
+              <image class='select_img {{show&&"select_img_rotate"}}' src='../../images/select_close.png'></image>   
+            </view>
+            <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*70):0}}rpx;'>
+              <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' a:for='{{selectData}}' data-value='{{item.value}}' onTap='optionTap'>{{item.label}}</text>
+            </view>
+          </view>
+        </view>
+    </view> 
+  </swiper-item>
+  <swiper-item>
+    <view class="comment2">
+    <view class="section">
+          <text class="section_p">X光片上传</text>
+          <view onTap="uploadImg" class="upload_img">
+            <view class="add_img">
+              +
+            </view>
+            <view class="text">
+              上传图片
+            </view>
+          </view>
+        </view>
+        <view class="upload_tips">
+          只支持.jpg 格式
+        </view>
+    </view>
+  </swiper-item>
+</swiper> 

@@ -1,0 +1,30 @@
+<view a:if="{{!showData}}" class="title warning_title">
+  <text>请输入顾客、或家长手机号码，进行查询</text>
+</view>
+<view a:if="{{showData}}" class="title data_title">
+  <text>顾客初诊信息：</text>
+</view>
+<form onSubmit="formSubmit" onReset="formReset">
+    <view class="section">
+        <text class="section__title">顾客手机号</text>
+        <input name="input" placeholder-class="input_placeholder" onInput="inputChange" placeholder="请输入手机号码" />
+        <button size="default" formType="submit" type="primary">查询</button>
+    </view>
+    <view class="section">
+        <text class="section__title">顾客姓名</text>
+        <input name="input" placeholder-class="input_placeholder" placeholder="请选择顾客姓名" />
+    </view>
+</form>
+<view a:if="{{showData}}">
+  <view class="section">
+    <text class="section__title">主诉</text>
+    <text>洗牙</text>
+  </view>
+  <view class="section">
+      <text class="section__title">初诊日期</text>
+      <text>2019年9月12日 15点33分</text>
+  </view>
+  <view a:if="{{showData}}" class="title data_title">
+    <text>顾客复诊信息：</text>
+  </view>
+</view>

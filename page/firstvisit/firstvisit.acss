@@ -1,13 +1,15 @@
+/* tab切换 */
 .tabs{
   width:100%;
   height:80rpx;
   line-height:80rpx;
   display: flex;
+  font-size:28rpx;
 }
 .tabs view{
   width:25%;
   text-align: center;
-   border:2rpx solid #DCDFE6;
+  border:2rpx solid #DCDFE6;
 }
 .on{
   color:#1989FA;
@@ -15,7 +17,96 @@
 .swiper-tab-list{
   width:25%;
 }
+/* 表单 */
 .shopSize{
   height:100%;
   overflow: scroll;
+}
+.star {
+  color: #E51C23;
+  margin-right: 10rpx;
+}
+.star_none {
+  color: #fff;
+  margin-right: 28rpx;
+}
+button{
+  width:512rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  margin: 60rpx 0 14rpx 114rpx;
+}
+.select_img {
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 60rpx;
+}
+.comment .section {
+  margin: 30rpx 0;
+}
+.comment .section__title {
+  width: 136rpx;
+  margin: 0 60rpx 0 20rpx;
+}
+.comment2 .section {
+  margin: 20rpx 0;
+  flex-wrap: wrap;
+}
+.comment2 .section__title {
+  width: 164rpx;
+  margin: 0 32rpx 0 20rpx;
+}
+.comment2 .section_p {
+  width: 100%;
+  margin-left: 20rpx;
+}
+.comment2 .section_p .tips {
+  color: #838383;
+  margin-left: 20rpx;
+}
+.select_between {
+  justify-content: space-between;
+}
+.page {
+  width: 90rpx;
+  margin-right: 46rpx;
+}
+.checkbox{
+  width: 136rpx;
+}
+.type3 {
+  width: 178rpx !important;
+}
+.radio {
+  width: 118rpx;
+}
+.upload_img {
+  width: 246rpx;
+  height: 158rpx;
+  border: 2rpx solid rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.12);
+  text-align: center;
+  margin-left: 20rpx;
+}
+.add_img {
+  font-size: 80rpx;
+  margin-top: 36rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  margin-bottom: 20rpx;
+  color: rgba(0,0,0,0.45);
+}
+.text {
+  line-height: 30rpx;
+  font-size: 28rpx;
+}
+.upload_tips {
+  margin: 20rpx 0 46rpx 20rpx;
+  color: rgba(0,0,0,0.45);
+  padding-left: 2%;
+  width: 98%;
+}
+.select_box {
+  width: 342rpx;
+  background: none;
 }

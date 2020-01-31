@@ -11,7 +11,7 @@ let url = "http://47.104.159.115:8080";
 
 Page({
     data:{
-        // authCode:'',
+        authCode:'',
         // openId:'',
         // nick:'',
         indicatorDots: true,
@@ -21,18 +21,52 @@ Page({
             'https://p3.pstatp.com/large/43700001e49d85d3ab52',
             'https://p3.pstatp.com/large/39f600038907bf3b9c96',
             'https://p3.pstatp.com/large/31fa0003ed7228adf421'
-        ]
+        ],
+        show:false,//控制下拉列表的显示隐藏，false隐藏、true显示
+        selectData: [{
+          value: '1',
+          label: '固瑞(大族)'
+        }, {
+          value: '2',
+          label: '合颌科技'
+        }, {
+          value: '3',
+          label: '欢乐口腔'
+        }, {
+          value: '4',
+          label: '博大口腔'
+        }],//下拉列表的数据
+        hospital: 1//选择的下拉列表下标
     },
     firstVisit () {
-      dd.redirectTo({
+      dd.navigateTo({
         url: '/page/firstvisit/firstvisit'
       })
+    },
+    returnVisit () {
+        dd.navigateTo({
+            url: '/page/returnvisit/returnvisit'
+        })
+    },
+    // 点击下拉显示框
+    selectTap(){
+        this.setData({
+             show: !this.data.show
+        });
+    },
+    // 点击下拉列表
+    optionTap(e){
+        let val = e.currentTarget.dataset.value;//获取点击的下拉列表的下标
+        this.setData({
+            hospital: val,
+            show:!this.data.show
+        });
     },
     onLoad(){
         let _this = this;
         dd.getAuthCode({
             success:(res)=>{
-                console.log(res)
+                console.log('code', res)
                 _this.setData({
                     authCode:res.authCode
                 })

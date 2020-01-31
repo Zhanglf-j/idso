@@ -2,14 +2,14 @@
   "pages": [
     "page/index/index",
     "page/setting/setting",
-    "page/firstvisit/firstvisit"
+    "page/firstvisit/firstvisit",
+    "page/returnvisit/returnvisit"
   ],
   "window": {
     "defaultTitle": "IDSO",
     "backgroundColor": "#F5F5F9",
     "pullRefresh": false,
-    "allowsBounceVertical": "YES",
-    "navigationStyle":"custom"
+    "allowsBounceVertical": "YES"
   },
   "tabBar": {
     "textColor": "#707070",
