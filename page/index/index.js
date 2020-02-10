@@ -1,6 +1,6 @@
 let app = getApp();
 //替换成开发者后台设置的安全域名
-let url = "http://47.104.159.115:8080";
+let url = "http://47.104.159.115";
 // let url = "http://127.0.0.1:8080"
 
 //let url = "http://abcde.vaiwan.com";
@@ -70,19 +70,36 @@ Page({
                 _this.setData({
                     authCode:res.authCode
                 })
+                dd.httpRequest({
+                    url: url+'/login',
+                    method: 'POST',
+                    data: {
+                        Msg: res.authCode
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res)
+                        // let userInfo = res.data.result;
+                        // _this.setData({
+                        //     openId:userInfo.openid,
+                        //     nick:userInfo.nick
+                        // })
+                    },
+                    fail: function(res) {
+                        // dd.alert({content: JSON.stringify(res)});
+                    },
+                    complete: function(res) {
+                        dd.hideLoading();
+                    }
+                });
                 // dd.httpRequest({
-                //     url: url+'/login',
-                //     method: 'POST',
+                //     url: url+'/api',
+                //     method: 'GET',
                 //     data: {
-                //         authCode: res.authCode
                 //     },
                 //     dataType: 'json',
                 //     success: function(res) {
-                //         let userInfo = res.data.result;
-                //         _this.setData({
-                //             openId:userInfo.openid,
-                //             nick:userInfo.nick
-                //         })
+                //         console.log(res)
                 //     },
                 //     fail: function(res) {
                 //         dd.alert({content: JSON.stringify(res)});
@@ -91,22 +108,6 @@ Page({
                 //         dd.hideLoading();
                 //     }
                 // });
-                dd.httpRequest({
-                    url: url+'/api',
-                    method: 'GET',
-                    data: {
-                    },
-                    dataType: 'json',
-                    success: function(res) {
-                        console.log(res)
-                    },
-                    fail: function(res) {
-                        dd.alert({content: JSON.stringify(res)});
-                    },
-                    complete: function(res) {
-                        dd.hideLoading();
-                    }
-                });
             },
             fail: (err)=>{
                 dd.alert({

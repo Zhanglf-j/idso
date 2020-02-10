@@ -71,6 +71,16 @@ button{
   width: 90rpx;
   margin-right: 46rpx;
 }
+.switch-list,.switch-item {
+  width: 90rpx;
+  height: 54rpx;
+  border-radius: 50% !important;
+}
+switch {
+  width: 90rpx;
+  height: 54rpx;
+  border-radius: 50% !important;
+}
 .checkbox{
   width: 136rpx;
 }

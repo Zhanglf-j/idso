@@ -103,7 +103,7 @@
         <text>顾客仪式</text>
       </view>
       <view>
-        <image mode="scaleToFill" src="../../images/apple.png"/>
+        <image mode="scaleToFill" src="../../images/apple_green.png"/>
         <text>医生转诊</text>
       </view>
       <view>
